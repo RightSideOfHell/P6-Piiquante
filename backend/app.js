@@ -12,7 +12,7 @@ mongoose.connect('mongodb+srv://Lysii:Moong0DBatla4s@piiquante.xruwvou.mongodb.n
   useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
   .catch(() => console.log('Connexion à MongoDB échouée !'));
-  
+
 app.use(express.json());
 
 app.use((req, res, next) => {
@@ -22,7 +22,6 @@ app.use((req, res, next) => {
   res.setHeader("Cross-Origin-Resource-Policy", "cross-origin");
   next();
 });
-
 
 
 app.use('/api/sauces', sauceRoutes);

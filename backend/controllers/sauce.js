@@ -1,22 +1,22 @@
-const jwt = require('jsonwebtoken');
 const Sauce = require('../models/sauce');
+const fs = require('fs');
 
-exports.getAllSauce = (req, res, next) => {
-    Sauce.find()
-        .then(sauces => res.status(200).json(sauces))
+exports.getOneSauce = (req, res, next) => {
+    Sauce.findOne({_id:req.params.id})
+        .then(sauce => res.status(200).json(sauce))
         .catch(error => {
             console.error(error);
             res.status(404).json({ message: error.message });
         });
 };
 
-exports.getOneSauce = (req, res, next) => {
-    Sauce.findOne({_id: req.params.id})
-        .then(sauce => res.status(200).json(sauce))
-        .catch(error => {
-            console.error(error);
-            res.status(404).json({ message: error.message });
-        });
+exports.getAllSauce = (req, res, next) => {
+    Sauce.find()
+    .then(sauces => res.status(200).json(sauces))
+    .catch(error => {
+        console.error(error);
+        res.status(404).json({ message: error.message });
+    });
 };
 
 exports.createSauce = (req, res, next) => {
