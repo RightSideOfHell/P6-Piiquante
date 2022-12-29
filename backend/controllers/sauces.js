@@ -76,5 +76,5 @@ exports.getAllSauce = (req, res, next) => {
 };
 
 exports.rateSauce = (req, res) => {
-    
+    console.log(req.body.like)
 }
