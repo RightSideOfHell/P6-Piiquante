@@ -8,6 +8,7 @@ const userRoutes = require('./routes/user');
 const app = express();
 
 require('dotenv').config()
+mongoose.set('strictQuery', true)
 mongoose.connect(process.env.MONGO_DETAILS,
 { useNewUrlParser: true,
   useUnifiedTopology: true })

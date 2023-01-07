@@ -1,8 +1,20 @@
-# HotTakes
+# HotTakes - Install & Running
+
+## Backend - install
+Install nodemon from the backend server: npm install -g nodemon. 
+Run nodemon from the backend: nodemon
+Create a .env file in the backend folder and copy/paste the content of dotenv.txt file inside.
+
+## Frontend
+From the frontend install npm: npm install
+Then start it: npm run start. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.4.
+## ------------------------------------------------------------------------------------------------------------------------------ ##
+## ------------------------------------------------------------------------------------------------------------------------------ ##
 
-## Development server
+
+## HotTakes - Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
