@@ -10,9 +10,7 @@ From the frontend install npm: npm install
 Then start it: npm run start. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.4.
-## ------------------------------------------------------------------------------------------------------------------------------ ##
-## ------------------------------------------------------------------------------------------------------------------------------ ##
-
+## -------------------------------------------------------------------------------------- ##
 
 ## HotTakes - Development server
 
