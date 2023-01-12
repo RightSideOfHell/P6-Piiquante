@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 
 const User = require('../models/user');
 
-
+// Permet la création du compte et hash le MDP
 exports.signup = (req, res, next) => {
         bcrypt.hash(req.body.password, 10)
           .then(hash => {
@@ -18,7 +18,7 @@ exports.signup = (req, res, next) => {
           .catch(error => res.status(500).json({ error }));
 };
 
-
+// Fonction log in. Compare l' email de l'utilisateur et le MDP avec celui de la création du compte
 exports.login = (req, res, next) => {
     User.findOne({email: req.body.email})
         .then(user => {

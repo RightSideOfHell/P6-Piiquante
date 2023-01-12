@@ -1,7 +1,7 @@
 const Sauce = require('../models/sauce');
 const fs = require('fs');
 
-
+//Créer une sauce avec l'Id de l'utilisateur
 exports.createSauce = (req, res, next) => {
     const sauceObject = JSON.parse(req.body.sauce);
     delete sauceObject._id;
@@ -16,6 +16,7 @@ exports.createSauce = (req, res, next) => {
     .catch(error => { res.status(400).json( { error })})
 };
 
+//Modifie une sauce si l'userId = userId du créateur de la sauce
 exports.modifySauce = (req, res, next) => {
     const sauceObject = req.file ? {
         ...JSON.parse(req.body.sauce),
@@ -38,6 +39,7 @@ exports.modifySauce = (req, res, next) => {
         });
 };
 
+// Supprime la sauce & l'image si l'userId = userId du créateur de la sauce
 exports.deleteSauce = (req, res, next) => {
     Sauce.findOne({ _id: req.params.id})
         .then(sauce => {
@@ -57,6 +59,7 @@ exports.deleteSauce = (req, res, next) => {
         });
  };
 
+// Permet de récupérer la sauce avec son id
 exports.getOneSauce = (req, res, next) => {
     Sauce.findOne({_id: req.params.id})
         .then(sauce => res.status(200).json(sauce))
@@ -66,6 +69,7 @@ exports.getOneSauce = (req, res, next) => {
         });
 };
 
+// Permet d'afficher toutes les sauces
 exports.getAllSauce = (req, res, next) => {
     Sauce.find()
         .then(sauces => res.status(200).json(sauces))
@@ -75,6 +79,7 @@ exports.getAllSauce = (req, res, next) => {
         });
 };
 
+// like/dislike => ajoute et enlève l'ID de l'utilisateur dans l'array userLike/userDislike en fonction du clic like/dislike
 exports.rateSauce = (req, res, next) => {
     let userId = req.body.userId
 

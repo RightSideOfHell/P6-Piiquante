@@ -7,6 +7,7 @@ const userRoutes = require('./routes/user');
 
 const app = express();
 
+// Connection à MongoDB
 require('dotenv').config()
 mongoose.set('strictQuery', true)
 mongoose.connect(process.env.MONGO_DETAILS,
@@ -17,6 +18,7 @@ mongoose.connect(process.env.MONGO_DETAILS,
 
 app.use(express.json());
 
+// Ajout des CORS
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
